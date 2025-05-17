@@ -8,7 +8,8 @@ import { B3Propagator } from '@opentelemetry/propagator-b3';
 import { ConsoleSpanExporter } from '@opentelemetry/sdk-trace-base';
 
 // create the OTLP/Collector exporter
-const collectorUrl = import.meta.env.VITE_OTEL_EXPORTER_OTLP_ENDPOINT;
+// const collectorUrl = import.meta.env.VITE_OTEL_EXPORTER_OTLP_ENDPOINT;
+const collectorUrl = 'http://localhost:4317/v1/traces'; // Replace with your actual collector URL
 
 const exporter = new CollectorTraceExporter({
   url: collectorUrl,
