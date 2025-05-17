@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://www.github.com/TineoC/otel-demo
+    repoURL: https://github.com/TineoC/otel-demo
     path: ./deploy/o11y/otel-collector
   destination:
     server: https://kubernetes.default.svc

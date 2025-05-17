@@ -16,6 +16,7 @@
     ],
     "scripts": {
       "init": "bash devbox-scripts/init.sh",
+      "deploy": "kubectl apply -f ./deploy/argocd",
       "dev:frontend": "cd ./services/frontend && npm install && npm run dev"
     }
   }
