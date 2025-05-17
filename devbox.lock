@@ -165,6 +165,54 @@
         }
       }
     },
+    "kustomize@latest": {
+      "last_modified": "2025-05-06T08:06:31Z",
+      "resolved": "github:NixOS/nixpkgs/1cb1c02a6b1b7cf67e3d7731cbbf327a53da9679#kustomize",
+      "source": "devbox-search",
+      "version": "5.6.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/7vk740iqnrdnkamwfgn553hpvqgch4ds-kustomize-5.6.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/7vk740iqnrdnkamwfgn553hpvqgch4ds-kustomize-5.6.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/niz4p72ad1npdac6cdisblmhrj5xcpvd-kustomize-5.6.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/niz4p72ad1npdac6cdisblmhrj5xcpvd-kustomize-5.6.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/xhfkgsbbg3farvmhk4kscm3k6q3vkk9d-kustomize-5.6.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/xhfkgsbbg3farvmhk4kscm3k6q3vkk9d-kustomize-5.6.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/gxzjnk3qr1wiqhss1l6q3xm2fq5gg5hv-kustomize-5.6.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/gxzjnk3qr1wiqhss1l6q3xm2fq5gg5hv-kustomize-5.6.0"
+        }
+      }
+    },
     "nodejs@24": {
       "last_modified": "2025-05-12T14:38:58Z",
       "plugin_version": "0.0.2",
