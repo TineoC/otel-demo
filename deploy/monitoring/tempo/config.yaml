@@ -1,31 +1,21 @@
-# config.yaml (mounted into /etc/tempo/config.yaml by your Deployment)
+# deploy/monitoring/tempo/config.yml
 auth_enabled: false
 
 server:
-  # HTTP query UI and metrics (defaults to 3200)
   http_listen_port: 3200
+  grpc_listen_port: 4317
 
 distributor:
-  # send incoming spans on to the ingester
   receivers:
     otlp:
       protocols:
-        # gRPC for CollectorTraceExporter
-        grpc:
-        # HTTP/JSON or HTTP/protobuf for OTLP HTTP exporter
-        http:
+        grpc: {} # will listen on 0.0.0.0:4317
+        http: {} # will listen on 0.0.0.0:4318
 
-ingester:
-  wal:
-    path: /var/tempo/wal
+storage:
   trace:
     backend: local
+    wal:
+      path: /var/tempo/wal
     local:
       path: /var/tempo/traces
-      retention: 24h
-
-compactor:
-  compaction_interval: 1h
-
-querier:
-  query_timeout: 1m
