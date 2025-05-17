@@ -20,8 +20,7 @@ spec:
           http:
             endpoint: "0.0.0.0:4318"
             cors:
-              allowed_origins:
-                - "http://localhost:5173"
+              allowed_origins: ["*"]
               allowed_headers: ["*"]
               max_age: 7200
 
