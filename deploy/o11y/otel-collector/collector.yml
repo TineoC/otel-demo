@@ -21,7 +21,6 @@ spec:
 
     exporters:
       debug:
-        logLevel: debug
 
     service:
       pipelines:
