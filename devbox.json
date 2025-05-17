@@ -1,14 +1,22 @@
 {
-  "$schema":  "https://raw.githubusercontent.com/jetify-com/devbox/0.14.2/.schema/devbox.schema.json",
-  "packages": ["nodejs@24"],
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.14.2/.schema/devbox.schema.json",
+  "packages": [
+    "nodejs@24",
+    "kind@latest",
+    "kubectl@latest",
+    "helm@latest"
+  ],
+  "env": {
+    "VITE_OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:55681/v1/traces"
+  },
   "shell": {
     "init_hook": [
-      "echo 'Welcome to devbox!' > /dev/null"
+      "# bootstrap everything: cluster + argocd + operator",
+      "bash devbox-scripts/init.sh"
     ],
     "scripts": {
-      "test": [
-        "echo \"Error: no test specified\" && exit 1"
-      ]
+      "init": "bash devbox-scripts/init.sh",
+      "dev:frontend": "cd ./services/frontend && npm install && npm run dev"
     }
   }
 }
