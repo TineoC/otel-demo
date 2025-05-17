@@ -7,17 +7,13 @@ server:
 
 distributor:
   # send incoming spans on to the ingester
-  receivers: [otlp]
-
-receivers:
-  otlp:
-    protocols:
-      # gRPC for CollectorTraceExporter
-      grpc:
-        endpoint: 0.0.0.0:4317
-      # HTTP/JSON or HTTP/protobuf for OTLP HTTP exporter
-      http:
-        endpoint: 0.0.0.0:4318
+  receivers:
+    otlp:
+      protocols:
+        # gRPC for CollectorTraceExporter
+        grpc:
+        # HTTP/JSON or HTTP/protobuf for OTLP HTTP exporter
+        http:
 
 ingester:
   wal:
