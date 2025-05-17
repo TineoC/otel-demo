@@ -1,0 +1,14 @@
+apiVersion: flagd.openfeature.dev/v1beta1
+kind: FeatureFlagConfiguration
+metadata:
+  name: store-flags
+spec:
+  flags:
+    enable_recommender_v2:
+      variations:
+        - name: off
+          value: false
+        - name: on
+          value: true
+      targeting:
+        percentage: 50

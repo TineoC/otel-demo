@@ -1,0 +1,23 @@
+apiVersion: flagger.app/v1beta1
+kind: Canary
+metadata:
+  name: recommendation
+  namespace: store
+spec:
+  provider: prometheus
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: recommendation
+  analysis:
+    interval: 30s
+    threshold: 5
+    stepWeight: 10
+    maxWeight: 50
+    metrics:
+      - name: request-success-rate
+        threshold: 99
+        interval: 1m
+      - name: request-duration
+        threshold: 500 # ms
+        interval: 30s

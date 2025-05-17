@@ -1,0 +1,10 @@
+# deploy/observability/otel-values.yaml
+mode: deployment
+presets:
+  kubeProxyMetrics: true
+  logsCollection:
+    enabled: true
+config:
+  exporters:
+    prometheusremotewrite:
+      endpoint: http://prometheus-kube-prometheus-prometheus.monitoring.svc:9090/api/v1/write
