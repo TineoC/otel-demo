@@ -5,13 +5,6 @@ metadata:
   namespace: opentelemetry-operator
 spec:
   mode: deployment
-  # service:
-  #   type: ClusterIP
-  #   ports:
-  #     - name: otlp-grpc
-  #       port: 4317
-  #     - name: otlp-http
-  #       port: 4318
   config: |
     receivers:
       otlp:
