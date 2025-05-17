@@ -1,0 +1,8 @@
+resources:
+  - deployment.yml
+
+configMapGenerator:
+  - name: tempo-config
+    behavior: merge
+    files:
+      - config.yaml=tempo-configmap.yaml

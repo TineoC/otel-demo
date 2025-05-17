@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: opentelemetry-collector
+  name: monitoring
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/TineoC/otel-demo
-    path: ./deploy/o11y/otel-collector
+    path: ./deploy/o11y/monitoring
   destination:
     server: https://kubernetes.default.svc
-    namespace: opentelemetry-operator
+    namespace: observability
   syncPolicy:
     automated:
       prune: true

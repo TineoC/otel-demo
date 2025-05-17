@@ -1,0 +1,10 @@
+resources:
+  - deployment.yml
+
+configMapGenerator:
+  - name: grafana-provisioning
+    behavior: merge
+    files:
+      - ./provisioning/datasources.yml
+      - ./provisioning/dashboards.yml
+      - ./provisioning/dashboard_19419.json

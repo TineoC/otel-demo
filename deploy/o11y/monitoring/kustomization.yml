@@ -4,8 +4,9 @@ metadata:
   name: otel-collector
 
 resources:
-  - ./collector.yml
+  - ./grafana
+  - ./otel
+  - ./tempo
 
 commonLabels:
-  app: otel-collector
-  role: observability
+  role: monitoring
