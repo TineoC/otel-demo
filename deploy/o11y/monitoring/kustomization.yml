@@ -8,5 +8,6 @@ resources:
   - ./otel
   - ./tempo
 
-commonLabels:
-  role: monitoring
+labels:
+  - pairs:
+      role: monitoring
