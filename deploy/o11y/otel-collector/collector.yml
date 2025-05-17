@@ -14,19 +14,17 @@ spec:
         port: 4318
   config: |
     receivers:
-      # OTLP receiver supports both gRPC and HTTP
       otlp:
         protocols:
-          grpc:    # listens on :4317
-          http:    # listens on :4318
+          grpc:
+          http:
 
     exporters:
-      # For demo purposes: log all incoming traces
-      logging:
+      debug:
         logLevel: debug
 
     service:
       pipelines:
         traces:
           receivers: [otlp]
-          exporters: [logging]
+          exporters: [debug]
