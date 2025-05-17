@@ -5,19 +5,25 @@ metadata:
   namespace: opentelemetry-operator
 spec:
   mode: deployment
-  service:
-    type: ClusterIP
-    ports:
-      - name: otlp-grpc
-        port: 4317
-      - name: otlp-http
-        port: 4318
+  # service:
+  #   type: ClusterIP
+  #   ports:
+  #     - name: otlp-grpc
+  #       port: 4317
+  #     - name: otlp-http
+  #       port: 4318
   config: |
     receivers:
       otlp:
         protocols:
-          grpc:
+          grpc: {}
           http:
+            endpoint: "0.0.0.0:4318"
+            cors:
+              allowed_origins:
+                - "http://localhost:5173"
+              allowed_headers: ["*"]
+              max_age: 7200
 
     exporters:
       debug:
