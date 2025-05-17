@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/TineoC/otel-demo
-    path: ./deploy/o11y/monitoring
+    path: ./deploy/monitoring
   destination:
     server: https://kubernetes.default.svc
     namespace: observability
