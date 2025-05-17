@@ -5,7 +5,6 @@ import { SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
 import { registerInstrumentations } from '@opentelemetry/instrumentation';
 import { ZoneContextManager } from '@opentelemetry/context-zone';
 import { B3Propagator } from '@opentelemetry/propagator-b3';
-import { ConsoleSpanExporter } from '@opentelemetry/sdk-trace-base';
 
 // create the OTLP/Collector exporter
 const collectorUrl = 'v1/traces'
@@ -20,7 +19,6 @@ const exporter = new CollectorTraceExporter({
 const provider = new WebTracerProvider({
   spanProcessors: [
     new SimpleSpanProcessor(exporter),
-    new SimpleSpanProcessor(new ConsoleSpanExporter()),
   ],
 });
 
