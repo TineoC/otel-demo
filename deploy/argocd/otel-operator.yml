@@ -12,10 +12,9 @@ spec:
     helm:
       values: |-
         admissionWebhooks:
-          certManager:
-            enabled: false
-          autoGenerateCert:
-            enabled: true
+        certManager:
+          enabled: true
+        autoGenerateCert: null
         manager:
           collectorImage:
             repository: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-k8s

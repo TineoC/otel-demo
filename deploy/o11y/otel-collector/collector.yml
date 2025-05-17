@@ -4,10 +4,7 @@ metadata:
   name: otel-collector
   namespace: opentelemetry-operator
 spec:
-  # Run as a Deployment
   mode: deployment
-
-  # Expose a ClusterIP service on the standard OTLP ports
   service:
     type: ClusterIP
     ports:
@@ -15,8 +12,6 @@ spec:
         port: 4317
       - name: otlp-http
         port: 4318
-
-  # Collector configuration
   config: |
     receivers:
       # OTLP receiver supports both gRPC and HTTP
