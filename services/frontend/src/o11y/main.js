@@ -8,11 +8,8 @@ import { B3Propagator } from '@opentelemetry/propagator-b3';
 import { ATTR_SERVICE_NAME } from '@opentelemetry/semantic-conventions';
 import { resourceFromAttributes } from '@opentelemetry/resources';
 
-// create the OTLP/Collector exporter
-const collectorUrl = 'v1/traces'
-
 const exporter = new CollectorTraceExporter({
-  url: collectorUrl,
+  url: `http://otel-collector-collector.observability.svc.cluster.local:4318/v1/traces`,
 });
 
 
