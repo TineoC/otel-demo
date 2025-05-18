@@ -16,8 +16,9 @@ spec:
               allowed_origins: ["*"]
               allowed_headers: ["*"]
               max_age: 7200
-      spanmetrics:
-        metrics_exporter: prometheus
+
+    connectors:
+      spanmetrics: {}
 
     processors:
       batch: {}
@@ -37,8 +38,7 @@ spec:
         traces:
           receivers: [otlp]
           processors: [batch]
-          exporters: [otlp, debug]
+          exporters: [otlp, debug, spanmetrics]
         metrics:
           receivers: [spanmetrics]
-          processors: [batch]
           exporters: [prometheus]
