@@ -40,6 +40,6 @@ spec:
           exporters: [otlp, debug]
 
         metrics:
-          receivers: [spanmetrics]
+          # receivers: [spanmetrics]
           processors: [batch]
           exporters: [prometheus]
