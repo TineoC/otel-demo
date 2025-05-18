@@ -2,8 +2,8 @@ name: Push store-frontend to GHCR
 
 on:
   push:
-    paths:
-      - 'services/frontend/**'
+    # paths:
+    #   - 'services/frontend/**'
     branches: [main]
 
 jobs:
