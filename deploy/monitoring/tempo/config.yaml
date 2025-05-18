@@ -2,6 +2,7 @@ auth_enabled: false
 
 server:
   http_listen_port: 3200
+  grpc_listen_port: 9095
 
 distributor:
   receivers:
@@ -40,4 +41,5 @@ storage:
       queue_depth: 10000
 
 memberlist:
-  join_members: []
+  join_members:
+  - tempo-headless.observability.svc.cluster.local
