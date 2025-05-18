@@ -1,2 +1,5 @@
 resources:
   - ./collector.yml
+
+patchesStrategicMerge:
+- otel-collector-service-patch.yaml
