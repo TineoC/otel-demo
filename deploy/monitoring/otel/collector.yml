@@ -24,8 +24,8 @@ spec:
         endpoint: "tempo.observability.svc.cluster.local:9095"
         tls:
           insecure: true
-      logging:
-        verbosity: Detailed
+      debug:
+        verbosity: detailed
 
     service:
       pipelines:
