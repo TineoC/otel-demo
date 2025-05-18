@@ -26,12 +26,5 @@ ingester:
 
 querier: # all defaults are fine here, you can omit this block entirely
 
-blocks_storage:
-  backend: filesystem
-  tsdb:
-    wal:
-      enabled: true
-      dir: /data/wal
-
 memberlist:
   join_members: []
