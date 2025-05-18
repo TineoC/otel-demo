@@ -18,10 +18,7 @@ spec:
 
     processors:
       batch:
-      logging:
-        loglevel: debug
-        sampling_initial: 1
-        sampling_thereafter: 1
+      debug:
       
     exporters:
       otlp/tempo:
@@ -35,5 +32,5 @@ spec:
       pipelines:
         traces:
           receivers: [otlp]
-          processors: [batch, logging]
+          processors: [batch, debug]
           exporters: [otlp/tempo, debug]
