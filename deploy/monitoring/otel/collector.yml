@@ -20,7 +20,8 @@ spec:
       batch: {}
 
     exporters:
-      debug: {}
+      debug:
+        verbosity: detailed
       otlp:
         endpoint: "tempo.observability.svc.cluster.local:4317"
 
