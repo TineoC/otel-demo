@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: store-frontend:latest
+          image: ghcr.io/tineoc/store-frontend:latest
           ports:
             - containerPort: 80
           livenessProbe:

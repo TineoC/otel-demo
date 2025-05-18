@@ -12,13 +12,12 @@
     "VITE_OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:55681/v1/traces"
   },
   "shell": {
-    "init_hook": [
-      "# bootstrap everything: cluster + argocd + operator",
-      "bash devbox-scripts/init.sh"
-    ],
     "scripts": {
-      "init":   "bash devbox-scripts/init.sh",
-      "deploy": "kubectl apply -f ./deploy/argocd"
+      "create:cluster": "bash devbox-scripts/init.sh",
+      "instal:argo": "kubectl create namespace argocd && kubectl apply -n argocd -f https: //raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml",
+      "instal:otel": "kubectl apply -f https://github.com/open-telemetry/opentelemetry-operator/releases/latest/download/opentelemetry-operator.yaml",
+      "deploy": "devbox run install:argo && devbox run install:otel && kubectl apply -f ./deploy/argocd",
+      "cleanup": "kind cluster delete"
     }
   }
 }
