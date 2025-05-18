@@ -2,11 +2,14 @@ resources:
   - deployment.yml
 
 configMapGenerator:
-  - name: grafana-provisioning
-    files:
-      - ./provisioning/datasources.yml
-      - ./provisioning/dashboards.yml
-      - ./provisioning/dashboard_19419.json
+- name: grafana-provisioning-datasources
+  files:
+  - datasources.yml=./provisioning/datasources.yml
 
+- name: grafana-provisioning-dashboards
+  files:
+  - dashboards.yml=./provisioning/dashboards.yml
+  - dashboard_19419.json=./provisioning/dashboard_19419.json
+  
 generatorOptions:
   disableNameSuffixHash: true
