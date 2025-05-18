@@ -37,7 +37,7 @@ spec:
         traces:
           receivers: [otlp]
           processors: [spanmetrics, batch]
-          exporters: [otlp/tempo, debug]
+          exporters: [otlp, debug]
 
         metrics:
           receivers: [prometheus]
