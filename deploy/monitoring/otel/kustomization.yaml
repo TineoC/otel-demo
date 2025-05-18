@@ -1,5 +1,3 @@
 resources:
-  - ./collector.yml
-
-patchesStrategicMerge:
-- otel-collector-service-patch.yaml
+  - collector.yml
+  - otel-collector-prometheus.yaml
