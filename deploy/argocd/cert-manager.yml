@@ -12,7 +12,7 @@ spec:
     targetRevision: v1.11.1 # adjust to the version you need
     helm:
       values: |-
-        installCRDs: true      # ensure cert-manager CRDs are installed
+        installCRDs: true
 
   destination:
     server: https://kubernetes.default.svc
