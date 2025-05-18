@@ -12,9 +12,6 @@ distributor:
         grpc:
 
 ingester:
-  trace_idle_period: 10s # the length of time after a trace has not received spans to consider it complete and flush it
-  traces_per_block: 100 # cut the head block when it his this number of traces or ...
-  max_block_duration: 5m #   this much time passes
 
 compactor:
   compaction:
@@ -22,14 +19,12 @@ compactor:
     max_compaction_objects: 1000000 # maximum size of compacted blocks
     block_retention: 1h
     compacted_block_retention: 10m
-    
+
 storage:
   trace:
     backend: local # backend configuration to use
     wal:
       path: /tmp/tempo/wal # where to store the the wal locally
-      bloom_filter_false_positive: 0.05 # bloom filter false positive rate.  lower values create larger filters but fewer false positives
-      index_downsample: 10 # number of traces per index record
     local:
       path: /tmp/tempo
     pool:
