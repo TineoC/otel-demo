@@ -7,3 +7,6 @@ configMapGenerator:
       - ./provisioning/datasources.yml
       - ./provisioning/dashboards.yml
       - ./provisioning/dashboard_19419.json
+
+generatorOptions:
+  disableNameSuffixHash: true
