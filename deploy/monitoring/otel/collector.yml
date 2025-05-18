@@ -3,6 +3,7 @@ kind: OpenTelemetryCollector
 metadata:
   name: otel-collector
 spec:
+  image: otel/opentelemetry-collector-contrib:0.90.1
   config:
     receivers:
       otlp:
@@ -37,6 +38,3 @@ spec:
           receivers: [otlp]
           processors: [batch, spanmetrics]
           exporters: [debug, otlp, prometheus]
-        metrics:
-          receivers: [prometheus]
-          exporters: [prometheus]
