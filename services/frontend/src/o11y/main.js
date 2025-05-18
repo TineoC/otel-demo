@@ -21,7 +21,9 @@ const provider = new WebTracerProvider({
   resource,
   spanProcessors: [
     // new SimpleSpanProcessor(new ConsoleSpanExporter()),
-    new SimpleSpanProcessor(new OTLPTraceExporter()),
+    new SimpleSpanProcessor(new OTLPTraceExporter({
+      url: window.location.origin + '/v1/traces',
+    })),
   ],
 });
 
