@@ -17,20 +17,19 @@ spec:
               max_age: 7200
 
     processors:
-      log-traces:
-        sampling_initial: 1
-        sampling_thereafter: 1
+      batch:
 
     exporters:
-      otlp/tempo:
+      tempo:
         endpoint: "tempo.observability.svc.cluster.local:9095"
         tls:
           insecure: true
-      debug:
+      logging:
+        verbosity: Detailed
 
     service:
       pipelines:
         traces:
           receivers: [otlp]
-          processors: [log-traces]
-          exporters: [debug, otlp/tempo]
+          exporters: [tempo, logging]
+          processors: [batch]
