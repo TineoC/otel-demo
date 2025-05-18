@@ -5,7 +5,8 @@ import { SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
 import { registerInstrumentations } from '@opentelemetry/instrumentation';
 import { ZoneContextManager } from '@opentelemetry/context-zone';
 import { B3Propagator } from '@opentelemetry/propagator-b3';
-import { SEMRESATTRS_R } from '@opentelemetry/semantic-conventions';
+import { ATTR_SERVICE_NAME } from '@opentelemetry/semantic-conventions';
+import { resourceFromAttributes } from '@opentelemetry/resources';
 
 // create the OTLP/Collector exporter
 const collectorUrl = 'v1/traces'
@@ -15,14 +16,16 @@ const exporter = new CollectorTraceExporter({
 });
 
 
+const resource = resourceFromAttributes({
+  [ATTR_SERVICE_NAME]: 'store-frontend',
+});
+
 // set up the tracer provider with a simple span processor
 const provider = new WebTracerProvider({
   spanProcessors: [
     new SimpleSpanProcessor(exporter),
   ],
-  resource: {
-    [SEMRESATTRS_R.SERVICE_NAME]: 'store-frontend',
-  }
+  resource
 });
 
 // register context propagation and manager
