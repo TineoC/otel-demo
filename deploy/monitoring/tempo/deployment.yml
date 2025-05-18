@@ -1,40 +1,3 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: tempo-config
-data:
-  config.yaml: |
-    auth_enabled: false
-
-    server:
-      http_listen_port: 3200
-
-    ingester:
-      wal:
-        path: /var/tempo/wal
-      trace:
-        backend: local
-        local:
-          path: /var/tempo/traces
-          retention: 24h
-
-    distributor:
-      receivers: [otlp]
-
-    receivers:
-      otlp:
-        protocols:
-          grpc:
-            endpoint: 0.0.0.0:4317
-          http:
-            endpoint: 0.0.0.0:4318
-
-    compactor:
-      compaction_interval: 1h
-
-    querier:
-      query_timeout: 1m
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -82,9 +45,9 @@ spec:
     - name: http
       port: 3200
       targetPort: 3200
-    - name: otlp-grpc
-      port: 9095
-      targetPort: 9095
     - name: otlp-http
       port: 4318
       targetPort: 4318
+    - name: otlp-grpc
+      port: 4317
+      targetPort: 4317
