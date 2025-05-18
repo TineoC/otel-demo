@@ -36,5 +36,9 @@ spec:
       pipelines:
         traces:
           receivers: [otlp]
+          processors: [batch]
+          exporters: [debug, otlp]
+        metrics:
+          receivers: [otlp]
           processors: [batch, spanmetrics]
-          exporters: [debug, otlp, prometheus]
+          exporters: [prometheus]
