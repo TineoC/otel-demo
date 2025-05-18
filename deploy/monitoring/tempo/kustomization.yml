@@ -3,7 +3,7 @@ resources:
 
 configMapGenerator:
   - name: tempo-config
-    behavior: merge
+    behavior: replace
     files:
       - config.yaml
 
