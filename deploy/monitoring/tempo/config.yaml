@@ -13,17 +13,16 @@ distributor:
 ingester:
   # wal:
   #   path: /var/tempo/wal
-  trace:
-    backend: local
-    local:
-      path: /var/tempo/traces
-  max_chunk_age: 2h
-  lifecycler:
-    ring:
-      replication_factor: 1
-      kvstore:
-        store: memberlist
-    unregister_on_shutdown: true
+  # trace:
+  #   backend: local
+  #   local:
+  #     path: /var/tempo/traces
+  # lifecycler:
+  #   ring:
+  #     replication_factor: 1
+  #     kvstore:
+  #       store: memberlist
+    # unregister_on_shutdown: true
 
 querier: # all defaults are fine here, you can omit this block entirely
 
