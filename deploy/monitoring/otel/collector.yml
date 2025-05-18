@@ -16,30 +16,29 @@ spec:
               allowed_origins: ["*"]
               allowed_headers: ["*"]
               max_age: 7200
-
-    processors:
-      batch: {}
       spanmetrics:
         metrics_exporter: prometheus
 
+    processors:
+      batch: {}
+
     exporters:
+      prometheus:
+        endpoint: "otel-collector-collector.observability.svc.cluster.local:8889"
       debug:
         verbosity: detailed
       otlp:
         endpoint: "tempo.observability.svc.cluster.local:4317"
         tls:
           insecure: true
-      prometheus:
-        endpoint: "otel-collector-collector.observability.svc.cluster.local:8889"
 
     service:
       pipelines:
         traces:
           receivers: [otlp]
-          processors: [spanmetrics, batch]
+          processors: [batch]
           exporters: [otlp, debug]
-
         metrics:
-          # receivers: [spanmetrics]
+          receivers: [spanmetrics]
           processors: [batch]
           exporters: [prometheus]
