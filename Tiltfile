@@ -8,7 +8,7 @@ docker_build(
 )
 
 # 3. Link the frontend k8s resource to the new image and forward port
-k8s_resource(workload='frontend', port_forwards=[9090])
+k8s_resource(workload='frontend', port_forwards=[5173])
 
 # 4. (Optional) Enable live update for rapid development
 # live_update('store-frontend', [

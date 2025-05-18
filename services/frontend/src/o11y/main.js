@@ -9,7 +9,7 @@ import { ATTR_SERVICE_NAME } from '@opentelemetry/semantic-conventions';
 import { resourceFromAttributes } from '@opentelemetry/resources';
 
 const exporter = new CollectorTraceExporter({
-  url: `http://otel-collector-collector.observability.svc.cluster.local:4318/v1/traces`,
+  url: 'http://localhost:4318/v1/traces',
 });
 
 
