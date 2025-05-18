@@ -5,10 +5,6 @@ server:
   http_listen_port: 3200
   grpc_listen_port: 4317
 
-server:
-  http_listen_port: 3200
-  grpc_listen_port: 4317
-
 distributor:
   receivers:
     otlp:
@@ -18,10 +14,10 @@ distributor:
 
 ingester:
   # where spans get written
-  wal:
-    path: /var/tempo/wal
   trace:
     backend: local
+    wal:
+      path: /var/tempo/wal
     local:
       path: /var/tempo/traces
   lifecycler:
