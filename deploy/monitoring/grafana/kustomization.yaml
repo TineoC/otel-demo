@@ -3,7 +3,6 @@ resources:
 
 configMapGenerator:
   - name: grafana-provisioning
-    behavior: merge
     files:
       - ./provisioning/datasources.yml
       - ./provisioning/dashboards.yml
