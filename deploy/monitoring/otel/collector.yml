@@ -17,7 +17,7 @@ spec:
               max_age: 7200
 
     processors:
-      batch:
+      batch: {}
       
     exporters:
       otlp/tempo:
@@ -32,4 +32,4 @@ spec:
         traces:
           receivers: [otlp]
           processors: [batch]
-          exporters: [otlp/tempo, debug]
+          exporters: [debug, otlp/tempo]
