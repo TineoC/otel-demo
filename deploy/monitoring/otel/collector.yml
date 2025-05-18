@@ -20,16 +20,16 @@ spec:
       batch: {}
       
     exporters:
-      otlp/tempo:
-        endpoint: "tempo.monitoring.svc.cluster.local:9095"
-        tls:
-          insecure: true
       debug:
         verbosity: detailed
+      otlphttp:
+        endpoint: "tempo.observability.svc.cluster.local:9095"
+        tls:
+          insecure: true
 
     service:
       pipelines:
         traces:
           receivers: [otlp]
           processors: [batch]
-          exporters: [debug, otlp/tempo]
+          exporters: [debug]
