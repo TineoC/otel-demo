@@ -21,8 +21,8 @@ spec:
 
     exporters:
       debug: {}
-      otlp:
-        endpoint: "tempo.observability.svc.cluster.local:9095"
+      otlphttp:
+        endpoint: "tempo.observability.svc.cluster.local:3200"
         tls:
           insecure: true
 
@@ -31,4 +31,4 @@ spec:
         traces:
           receivers: [otlp]
           processors: [batch]
-          exporters: [debug, otlp]
+          exporters: [debug, otlphttp]
