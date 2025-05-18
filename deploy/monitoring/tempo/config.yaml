@@ -17,8 +17,5 @@ ingester:
     local:
       path: /var/tempo/traces
 
-querier:
-  search_backend: local
-
 memberlist:
   join_members: []
