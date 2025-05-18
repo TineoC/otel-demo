@@ -12,13 +12,19 @@ distributor:
         grpc:
 
 ingester:
+  lifecycler:
+    ring:
+      replication_factor: 1
+  trace_idle_period: 10s
+  flush_check_period: 10s
 
 compactor:
   compaction:
-    compaction_window: 1h # blocks in this time window will be compacted together
-    max_compaction_objects: 1000000 # maximum size of compacted blocks
+    compaction_window: 1h
     block_retention: 1h
     compacted_block_retention: 10m
+
+querier: {}
 
 storage:
   trace:
@@ -30,3 +36,6 @@ storage:
     pool:
       max_workers: 100 # the worker pool mainly drives querying, but is also used for polling the blocklist
       queue_depth: 10000
+
+memberlist:
+  join_members: []
