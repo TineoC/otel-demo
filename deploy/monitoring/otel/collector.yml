@@ -17,11 +17,11 @@ spec:
               max_age: 7200
 
     exporters:
-      debug:
       otlp/tempo:
         endpoint: "tempo.observability.svc.cluster.local:9095"
         tls:
           insecure: true
+      debug:
 
     service:
       pipelines:
