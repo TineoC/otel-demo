@@ -18,6 +18,8 @@ spec:
 
     processors:
       batch: {}
+      spanmetrics:
+        metrics_exporter: prometheus
 
     exporters:
       debug:
@@ -26,10 +28,15 @@ spec:
         endpoint: "tempo.observability.svc.cluster.local:4317"
         tls:
           insecure: true
+      prometheus:
+        endpoint: "0.0.0.0:8889"
 
     service:
       pipelines:
         traces:
           receivers: [otlp]
-          processors: [batch]
-          exporters: [debug, otlp]
+          processors: [batch, spanmetrics]
+          exporters: [debug, otlp, prometheus]
+        metrics:
+          receivers: [prometheus]
+          exporters: [prometheus]
