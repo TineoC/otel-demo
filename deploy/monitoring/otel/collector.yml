@@ -29,7 +29,7 @@ spec:
         tls:
           insecure: true
       prometheus:
-        endpoint: "0.0.0.0:8889"
+        endpoint: "otel-collector-collector.observability.svc.cluster.local:8889"
 
     service:
       pipelines:
