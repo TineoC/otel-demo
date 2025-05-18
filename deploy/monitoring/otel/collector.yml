@@ -1,14 +1,14 @@
-apiVersion: opentelemetry.io/v1alpha1
+apiVersion: opentelemetry.io/v1beta1
 kind: OpenTelemetryCollector
 metadata:
   name: otel-collector
 spec:
-  mode: deployment
-  config: |
+  config:
     receivers:
       otlp:
         protocols:
-          grpc: {}
+          grpc:
+            endpoint: "0.0.0.0:4317"
           http:
             endpoint: "0.0.0.0:4318"
             cors:
@@ -18,10 +18,9 @@ spec:
 
     processors:
       batch: {}
-      
+
     exporters:
-      debug:
-        verbosity: detailed
+      debug: {}
       otlphttp:
         endpoint: "tempo.observability.svc.cluster.local:9095"
         tls:
