@@ -31,5 +31,5 @@ spec:
       pipelines:
         traces:
           receivers: [otlp]
-          exporters: [otlp/tempo, logging]
+          exporters: [otlp/tempo, debug]
           processors: [batch]
