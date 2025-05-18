@@ -1,6 +1,4 @@
 # deploy/monitoring/tempo/config.yml
-auth_enabled: false
-
 server:
   http_listen_port: 3200
   grpc_listen_port: 4317
@@ -13,7 +11,6 @@ distributor:
         http: {}
 
 ingester:
-  # where spans get written
   wal:
     path: /var/tempo/wal
   trace:
@@ -27,8 +24,7 @@ ingester:
         store: memberlist
     unregister_on_shutdown: true
 
-querier:
+querier: # all defaults are fine here, you can omit this block entirely
 
 memberlist:
-  # single‐node ring (no peers)
   join_members: []
