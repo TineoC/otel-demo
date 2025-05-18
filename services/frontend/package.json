@@ -10,16 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@opentelemetry/api": "^1.9.0",
     "@opentelemetry/auto-instrumentations-web": "^0.47.0",
-    "@opentelemetry/resources": "^2.0.1",
+    "@opentelemetry/context-zone": "^2.0.1",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.201.0",
+    "@opentelemetry/instrumentation-document-load": "^0.46.0",
+    "@opentelemetry/sdk-trace-web": "^2.0.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
-    "@opentelemetry/context-zone": "^2.0.1",
-    "@opentelemetry/exporter-collector": "^0.25.0",
+    "@opentelemetry/core": "^2.0.1",
     "@opentelemetry/propagator-b3": "^2.0.1",
+    "@opentelemetry/resources": "^2.0.1",
     "@opentelemetry/semantic-conventions": "^1.33.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
