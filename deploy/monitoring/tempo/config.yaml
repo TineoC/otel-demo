@@ -1,4 +1,5 @@
-# deploy/monitoring/tempo/config.yml
+auth_enabled: false
+
 server:
   http_listen_port: 3200
   grpc_listen_port: 4317
@@ -7,25 +8,21 @@ distributor:
   receivers:
     otlp:
       protocols:
-        grpc: {}
-        http: {}
+        http:
+        grpc:
 
 ingester:
-  # wal:
-  #   path: /var/tempo/wal
-  # trace:
-  #   backend: local
-  #   local:
-  #     path: /var/tempo/traces
-  # lifecycler:
-  #   ring:
-  #     replication_factor: 1
-  #     kvstore:
-  #       store: memberlist
-    # unregister_on_shutdown: true
+  trace_idle_period: 10s # the length of time after a trace has not received spans to consider it complete and flush it
+  traces_per_block: 100 # cut the head block when it his this number of traces or ...
+  max_block_duration: 5m #   this much time passes
 
-querier: # all defaults are fine here, you can omit this block entirely
-
+compactor:
+  compaction:
+    compaction_window: 1h # blocks in this time window will be compacted together
+    max_compaction_objects: 1000000 # maximum size of compacted blocks
+    block_retention: 1h
+    compacted_block_retention: 10m
+    
 storage:
   trace:
     backend: local # backend configuration to use
@@ -38,6 +35,3 @@ storage:
     pool:
       max_workers: 100 # the worker pool mainly drives querying, but is also used for polling the blocklist
       queue_depth: 10000
-
-memberlist:
-  join_members: []
