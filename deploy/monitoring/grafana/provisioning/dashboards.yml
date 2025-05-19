@@ -11,4 +11,6 @@ providers:
     inputs:
       - name: DS_PROMETHEUS
         pluginId: prometheus
-        datasourceName: prometheus
+        pluginName: Prometheus
+        type: datasource
+        value: prometheus
