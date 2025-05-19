@@ -8,3 +8,7 @@ providers:
     updateIntervalSeconds: 10
     options:
       path: /etc/grafana/provisioning/dashboards
+    inputs:
+      - name: DS_PROMETHEUS
+        pluginId: prometheus
+        datasourceName: prometheus
