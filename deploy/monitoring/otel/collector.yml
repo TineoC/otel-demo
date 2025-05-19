@@ -18,7 +18,8 @@ spec:
               max_age: 7200
 
     connectors:
-      spanmetrics: {}
+      spanmetrics:
+        namespace: traces.span.metrics
 
     processors:
       batch: {}
@@ -41,4 +42,5 @@ spec:
           exporters: [otlp, debug, spanmetrics]
         metrics:
           receivers: [spanmetrics]
+          processors: [batch]
           exporters: [prometheus]
