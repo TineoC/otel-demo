@@ -30,7 +30,7 @@ spec:
         target_info:
           enabled: true
       debug:
-        verbosity: detailed
+        verbosity: basic
       otlp:
         endpoint: "tempo.observability.svc.cluster.local:4317"
         tls:
