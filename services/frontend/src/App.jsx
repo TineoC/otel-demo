@@ -32,12 +32,7 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <img src="https://media.licdn.com/dms/image/v2/D4E0BAQFa3cUq9w7z7A/company-logo_200_200/company-logo_200_200/0/1737511715857/kcdnewyork_logo?e=1753315200&v=beta&t=gaovCqUfB8t25V49_keplhZLd8mjFpPfh3btxmURiPo" />
       </div>
       <h1>Welcome to KCD New York 2025</h1>
       
