@@ -25,10 +25,8 @@ spec:
       batch: {}
 
     exporters:
-      prometheusremotewrite:
-        endpoint: http://prometheus-server.observability.svc.cluster.local:80/api/v1/write
-        target_info:
-          enabled: true
+      prometheus:
+        endpoint: "0.0.0.0:8889"
       debug:
         verbosity: basic
       otlp:
@@ -41,8 +39,8 @@ spec:
         traces:
           receivers: [otlp]
           processors: [batch]
-          exporters: [otlp, debug, spanmetrics]
+          exporters: [spanmetrics, otlp, debug]
         metrics:
           receivers: [spanmetrics]
           processors: [batch]
-          exporters: [prometheusremotewrite]
+          exporters: [prometheus]
